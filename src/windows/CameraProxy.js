@@ -502,14 +502,12 @@ function takePictureFromCamera(successCallback, errorCallback, args) {
         // Create capture button
         cameraCaptureButton = document.createElement('button');
         cameraCaptureButton.setAttribute('id', 'takePhoto');
-        cameraCaptureButton.innerText = 'Take';
-        cameraCaptureButton.style.cssText = buttonStyle + 'position: fixed; left: 0; bottom: 0; margin: 20px; z-index: ' + HIGHEST_POSSIBLE_Z_INDEX + ';';
+        cameraCaptureButton.style.cssText = 'position: fixed; right: 80px; top: calc(50vh - 40px); width: 80px; height: 80px; background-repeat: no-repeat; background-image: url(/www/img/camera.png); background-size: contain; margin: 20px; z-index: ' + HIGHEST_POSSIBLE_Z_INDEX + ';';
 
         // Create cancel button
         cameraCancelButton = document.createElement('button');
         cameraCancelButton.setAttribute('id', 'cancelPhoto');
-        cameraCancelButton.innerText = 'Cancel';
-        cameraCancelButton.style.cssText = buttonStyle + 'position: fixed; right: 0; bottom: 0; margin: 20px; z-index: ' + HIGHEST_POSSIBLE_Z_INDEX + ';';
+        cameraCancelButton.style.cssText = 'position: fixed; right: 80px; top: calc(50vh + 50px); width: 80px; height: 80px; background-repeat: no-repeat; background-image: url(/www/img/cancel.png); background-size: contain; margin: 20px; z-index: ' + HIGHEST_POSSIBLE_Z_INDEX + ';';
 
         var previewUrl = URL.createObjectURL(oMediaCapture);
         capturePreview.src = previewUrl;
@@ -579,7 +577,7 @@ function takePictureFromCamera(successCallback, errorCallback, args) {
                     if (sensor !== null) {
                         enc.bitmapTransform.rotation = orientationToRotation(sensor.getCurrentOrientation());
                     } else {
-                        enc.bitmapTransform.rotation = Windows.Media.Capture.VideoRotation.clockwise90Degrees;
+                        enc.bitmapTransform.rotation = Windows.Media.Capture.VideoRotation.notRotated;
                         //enc.bitmapTransform.rotation = Windows.Media.Capture.VideoRotation.clockwise90Degrees;
                     }
                     return enc.flushAsync();
