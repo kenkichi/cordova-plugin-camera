@@ -1115,12 +1115,12 @@ function takePictureFromCamera(successCallback, errorCallback, args) {
     function systemMediaControls_PropertyChanged(args) {
         // Check to see if the app is being muted. If so, it is being minimized.
         // Otherwise if it is not initialized, it is being brought into focus.
-// TODO
-//        if (args.target.soundLevel === Media.SoundLevel.muted) {
-//            cleanupCameraAsync();
-//        } else if (!isInitialized) {
+        /*
+        if (args.target.soundLevel === Media.SoundLevel.muted) {
+            cleanupCameraAsync();
+        } else */ if (!isInitialized) {
             initializeCameraAsync();
-//        }
+        }
     }
 
     function hardwareButtons_cameraPress() {
